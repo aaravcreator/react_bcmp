@@ -13,7 +13,8 @@ function Test(props){
             <div style={{
                 backgroundColor:"gray",
                 padding:"10px",
-                marginTop:"25px"
+                marginTop:"25px",
+                color:"white"
 
             }} >{props.location}</div>
 
