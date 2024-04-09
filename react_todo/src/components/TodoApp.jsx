@@ -10,7 +10,7 @@ const  TodoApp = ()=> {
       },
       {
         id:2,
-        task:"Buy Food",
+        task:"Buy Food and Fruit",
         completed:true,
         isEditing:false
       },
@@ -28,8 +28,17 @@ const  TodoApp = ()=> {
         
         // setTodos([mytodo, ...todos])
         // console.log(todos)
+        let mytodo = {
+          id:nextId,
+          task:todo,
+          completed:false,
+          isEditing:false
+        }
+        nextId++
+        const new_list = todos.append(mytodo)
+        setTodos(new_list)
+        }
     
-      }
      
     
       function toggleTodo(id){
@@ -55,6 +64,7 @@ const  TodoApp = ()=> {
           <TodoForm />
             {
                 todos.map(
+
                     (todo)=>{
 
                         return (<Todo todo={todo}/>)
