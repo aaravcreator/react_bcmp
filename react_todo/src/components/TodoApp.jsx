@@ -1,6 +1,11 @@
 import {React,useState} from 'react'
 import Todo from './Todo'
 import TodoForm from './TodoForm'
+
+// import { v4 as uuidv4 } from 'uuid';
+import {v4 as uuidv4} from 'uuid'
+
+
 const  TodoApp = ()=> {
     const [todos, setTodos] = useState([{
         id:1,
@@ -15,39 +20,34 @@ const  TodoApp = ()=> {
         isEditing:false
       },
       ])
+    
       
-    let  nextId=2;
+      // let nextId = 3
       const  addTodo = (todo)=>{
-        // let mytodo = {
-        //   id : nextId,
-        //   task:todo,
-        //   completed:false,
-        //   isEditing:false
-        // }
-        // nextId++
-        
-        // setTodos([mytodo, ...todos])
-        // console.log(todos)
+        console.log("From APP",todo)
         let mytodo = {
-          id:nextId,
+          id : uuidv4(),
           task:todo,
           completed:false,
           isEditing:false
         }
-        nextId++
-        const new_list = todos.append(mytodo)
-        setTodos(new_list)
+    
+        // nextId = nextId + 1
+        
+        setTodos([mytodo, ...todos])
+        // console.log(todos)
         }
     
      
     
       function toggleTodo(id){
-        // setTodos(todos.map((todo)=>todo.id === id ? {...todo,completed : !todo.completed} : todo))
+        setTodos(todos.map((todo)=>todo.id === id ? {...todo,completed : !todo.completed} : todo))
     
       }
     
       function deleteTodo(id){
-        // setTodos([...todos.filter(todo=>todo.id != id)])
+        console.log(id)
+        setTodos([...todos.filter(todo=>todo.id != id)])
       }
     
       // just to make edit form appear
@@ -61,13 +61,13 @@ const  TodoApp = ()=> {
           
           <div className="mx-auto bg-slate-800 max-w-5xl rounded-xl p-2">
           <h1 className='text-center text-3xl text-white'>TodoApp</h1>
-          <TodoForm />
+          <TodoForm addTodo={addTodo}  />
             {
                 todos.map(
 
                     (todo)=>{
 
-                        return (<Todo todo={todo}/>)
+                        return (<Todo todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo}/>)
 
                     }
                 )
