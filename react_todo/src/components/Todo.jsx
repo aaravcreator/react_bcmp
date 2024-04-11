@@ -9,7 +9,7 @@ const Todo = ({todo,deleteTodo,toggleTodo}) => {
        {/*  use line-through class for strike */}
         <h1 onClick={()=>{
           toggleTodo(todo.id)
-        }}  className={ todo.completed ? "line-through text-white text-2xl": "text-white text-2xl" }>  {todo.task}</h1>
+        }}  className={ todo.completed ? "line-through text-white text-2xl": "text-white text-2xl" }> {todo.id}  {todo.task}</h1>
        </div>
        <div className="flex space-x-2">
        <button  className='bg-yellow-400 text-white p-2 rounded'>Edit Todo</button>

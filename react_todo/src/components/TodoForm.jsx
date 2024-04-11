@@ -8,7 +8,7 @@ const TodoForm = ({addTodo}) => {
       (e)=>{
 
         e.preventDefault()
-
+        // addTodo(todo)
         if (todo.length >0){
           addTodo(todo)
           setTodo('')
