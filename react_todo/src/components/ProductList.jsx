@@ -3,6 +3,7 @@ import {React,useState,useEffect} from 'react'
 import ProductCard from './ProductCard';
 const ProductList = () => {
         const [products,setProducts] = useState([]);
+
     
     useEffect(
         ()=>{
@@ -30,6 +31,7 @@ const ProductList = () => {
             stock = {product.stock}
             category={ product.category}
             rating= {product.rating}
+            discountPercentage={product.discountPercentage}
 
 
             
